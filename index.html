@@ -23,7 +23,7 @@
             max-width: 600px;
         }
         .countdown {
-            font-size: 8rem;
+            font-size: 6rem;
             font-weight: bold;
             color: white;
             text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3);
@@ -96,7 +96,7 @@
         }
 
         function updateCountdown() {
-            const birthday = new Date("2025-03-02T00:00:00"); // 생일 날짜 설정
+            const birthday = new Date("2026-03-02T00:00:00"); // 생일 날짜 설정
             const now = new Date();
             const timeDiff = birthday - now;
 
@@ -107,10 +107,11 @@
                 playMusic(); // 🎵 음악 자동 재생
             } else {
                 const totalSeconds = Math.floor(timeDiff / 1000);
+                const days = Math.floor(totalSeconds / 86400);
                 const hours = String(Math.floor(totalSeconds / 3600) % 24).padStart(2, '0');
                 const minutes = String(Math.floor(totalSeconds / 60) % 60).padStart(2, '0');
                 const seconds = String(totalSeconds % 60).padStart(2, '0');
-                document.getElementById("countdown").innerText = `${hours}:${minutes}:${seconds}`;
+                document.getElementById("countdown").innerText = `${days}일 ${hours}:${minutes}:${seconds}`;
             }
         }
 
